@@ -2,7 +2,7 @@
 
 # webappjs
 
-Single-page web app module.
+Making single page web apps easy as pie.
 
 ## License
 
