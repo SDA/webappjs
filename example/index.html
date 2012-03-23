@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<!-- This example uses RequireJS: http://requirejs.org/ -->
+		<script src="require.js"></script>
+		<script>
+
+// Configure the module locations.
+require.config({
+	paths: {
+		'signals': '/deps/signals.min',
+		'hasher': '/deps/hasher.min',
+		'crossroads': '/deps/crossroads.min',
+		'webapp': '/lib/webapp'
+	}
+});
+
+// Include the WebApp module.
+require(['webapp'], function(WebApp) {
+	var output = document.getElementById('output');
+
+	// Create a new web app object.
+	var app = new WebApp();
+
+	// Set up the routes.
+	app.location.on('/', function() { output.insertAdjacentHTML('beforeEnd', '/\n'); });
+	app.location.on('/home', function() { output.insertAdjacentHTML('beforeEnd', '/home\n'); });
+	app.location.on('/lorem', function() { output.insertAdjacentHTML('beforeEnd', '/lorem\n'); });
+	app.location.on('/lorem/ipsum', function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum1\n'); });
+	app.location.on('/lorem', '/ipsum', function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum2\n'); });
+	app.location.on('/lorem', {
+		'/ipsum': function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum3\n'); }
+	});
+	app.location.once('/lorem/ipsum', function() { output.insertAdjacentHTML('beforeEnd', 'once: /lorem/ipsum\n'); });
+	app.run();
+
+	// Make the app object global so we can use it in button event handlers.
+	window.app = app;
+});
+
+		</script>
+	</head>
+	<body>
+		<button onclick="javascript:app.location.set('/')">/</button>
+		<button onclick="javascript:app.location.set('/home')">/home</button>
+		<button onclick="javascript:app.location.set('/lorem/ipsum')">/lorem/ipsum</button>
+		<pre id="output"></pre>
+	</body>
+</html>

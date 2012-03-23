@@ -1,0 +1,39 @@
+{
+	"name"           : "webappjs",
+	"description"    : "Single-page web app module",
+	"version"        : "1.0.0",
+	"keywords"       : ["util", "browser", "SPA", "single", "page", "web", "app"],
+	"homepage"       : "http://github.com/SDA/webappjs",
+	"author"         : "Sasa Djolic <sasa.djolic@sdaworld.com>",
+	"maintainers"    : [{
+		"name"       : "Sasa Djolic",
+		"email"      : "sasa.djolic@sdaworld.com",
+		"web"        : "http://www.sasadjolic.com"
+	}],
+	"contributors"   : [{
+		"name"       : "Sasa Djolic",
+		"email"      : "sasa.djolic@sdaworld.com",
+		"web"        : "http://www.sasadjolic.com"
+	}],
+	"bugs"           : { "url": "http://github.com/SDA/webappjs/issues" },
+	"licenses"       : [{ "type": "MIT", "url": "https://raw.github.com/SDA/webappjs/master/LICENSE" }],
+	"repositories"   : [{ "type": "git", "url": "http://github.com/SDA/webappjs" }],
+	"scripts"        : {
+		"build"      : "node build/build.js",
+		"test"       : "node test/index.js"
+	},
+	"directories"    : {
+		"lib"        : "lib"
+	},
+	"devDependencies": {
+		"qunit"      : "0.4.x"
+	},
+	"dependencies"   : {
+		"fs-extra"   : ">= 0.0.4",
+		"node-static": "0.5.x",
+		"seq"        : "0.3.x"
+	},
+	"engines"        : {
+		"node"       : "0.6.x"
+	}
+}

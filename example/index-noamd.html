@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../deps/signals.min.js"></script>
+		<script type="text/javascript" src="../deps/hasher.min.js"></script>
+		<script type="text/javascript" src="../deps/crossroads.min.js"></script>
+		<script type="text/javascript" src="../lib/webapp.js"></script>
+	</head>
+	<body>
+		<button onclick="javascript:app.location.set('/')">/</button>
+		<button onclick="javascript:app.location.set('/home')">/home</button>
+		<button onclick="javascript:app.location.set('/lorem/ipsum')">/lorem/ipsum</button>
+		<pre id="output"></pre>
+
+		<script>
+var output = document.getElementById('output');
+
+// Create a new web app object.
+var app = new WebApp();
+
+// Set up the routes.
+app.location.on('/', function() { output.insertAdjacentHTML('beforeEnd', '/\n'); });
+app.location.on('/home', function() { output.insertAdjacentHTML('beforeEnd', '/home\n'); });
+app.location.on('/lorem', function() { output.insertAdjacentHTML('beforeEnd', '/lorem\n'); });
+app.location.on('/lorem/ipsum', function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum1\n'); });
+app.location.on('/lorem', '/ipsum', function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum2\n'); });
+app.location.on('/lorem', {
+	'/ipsum': function() { output.insertAdjacentHTML('beforeEnd', '/lorem/ipsum3\n'); }
+});
+app.location.once('/lorem/ipsum', function() { output.insertAdjacentHTML('beforeEnd', 'once: /lorem/ipsum\n'); });
+app.run();
+		</script>
+
+	</body>
+</html>
