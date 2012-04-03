@@ -15,7 +15,7 @@
 var output = document.getElementById('output');
 
 // Access the web app singleton.
-var app = WebApp.sharedInstance();
+var app = webapp.sharedInstance();
 
 // Set up the routes.
 app.location.on('/', function() { output.insertAdjacentHTML('beforeEnd', '/\n'); });

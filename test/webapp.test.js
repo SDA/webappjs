@@ -1,5 +1,5 @@
-QUnit.module('WebApp');
+QUnit.module('webapp');
 
-QUnit.test('WebApp.sharedInstance()', function () {
-	ok(WebApp.sharedInstance(), 'WebApp.sharedInstance()');
+QUnit.test('webapp.sharedInstance()', function () {
+	ok(webapp.sharedInstance(), 'webapp.sharedInstance()');
 });

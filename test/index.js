@@ -7,7 +7,7 @@ qunit.options.log.globalSummary = false;
 qunit.run({
 	code: {
 		path: './lib/webapp.js',
-		namespace: 'WebApp'
+		namespace: 'webapp'
 	},
 	tests: [
 		'webapp.test.js'
