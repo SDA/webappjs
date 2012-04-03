@@ -19,7 +19,7 @@ require(['webapp'], function(WebApp) {
 	var output = document.getElementById('output');
 
 	// Access the web app singleton.
-	var app = webapp.sharedInstance();
+	var app = WebApp.sharedInstance();
 
 	// Set up the routes.
 	app.location.on('/', function() { output.insertAdjacentHTML('beforeEnd', '/\n'); });
