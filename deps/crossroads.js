@@ -6,7 +6,7 @@
  */
 
 (function (define) {
-define(['signals'], function (signals) {
+define('crossroads', ['signals'], function (signals) {
 
     var crossroads,
         UNDEF;
