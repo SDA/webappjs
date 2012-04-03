@@ -2,7 +2,7 @@ var util = require('util');
 var static = require('node-static');
 var fileServer = new static.Server('../');
 
-var port = process.env.PORT || 8010;
+var port = process.env.PORT || 8800;
 var ip = '127.0.0.1';
 
 var http = require('http');
