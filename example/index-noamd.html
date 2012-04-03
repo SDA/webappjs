@@ -14,8 +14,8 @@
 		<script>
 var output = document.getElementById('output');
 
-// Create a new web app object.
-var app = new WebApp();
+// Access the web app singleton.
+var app = WebApp.sharedInstance();
 
 // Set up the routes.
 app.location.on('/', function() { output.insertAdjacentHTML('beforeEnd', '/\n'); });
